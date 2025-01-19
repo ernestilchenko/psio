@@ -52,7 +52,7 @@ def odczytaj_tablice_rejestracyjna(sciezka_obrazu):
 
 
 if __name__ == "__main__":
-    sciezka_obrazu = "test/IMAGE 2025-01-18 22:35:36.jpg"
+    sciezka_obrazu = "test/lol.jpg"
     try:
         wykryty_tekst = odczytaj_tablice_rejestracyjna(sciezka_obrazu)
         print("\nWszystkie znalezione tablice:", wykryty_tekst)
