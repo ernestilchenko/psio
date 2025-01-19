@@ -43,7 +43,7 @@ def callback(frame: np.ndarray, _: int) -> np.ndarray:
 
 
 sv.process_video(
-    source_path="/Users/ernestilchenko/Downloads/parking/IMG_6292.MOV",
-    target_path="result_2.mp4",
+    source_path="/Users/ernestilchenko/Downloads/parking/IMG_6300.MOV",
+    target_path="result_3.mp4",
     callback=callback
 )

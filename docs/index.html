@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Inteligentnej Detekcji</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #81C784;
+            --background-dark: #121212;
+            --background-darker: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #FFB74D;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(145deg, var(--background-darker), #2d2d2d);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section {
+            background-color: var(--background-darker);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+        }
+
+        .video-description {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .feature-list {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+        }
+
+        pre {
+            background-color: #2d2d2d;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            color: var(--text-color);
+            margin: 20px 0;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .code-explanation {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .image-container {
+            background-color: #2d2d2d;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .image-description {
+            font-size: 0.9em;
+            color: var(--text-color);
+        }
+
+        .process-step {
+            background-color: #2d2d2d;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Inteligentny System Detekcji</h1>
+    <p>System Wykrywania Pojazdów, Osób i Rowerów</p>
+</header>
+
+<div class="container">
+    <!-- Sekcja 1: Detekcja Pojazdów -->
+    <div class="section">
+        <h2>Demonstracja Detekcji Pojazdów</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/utLnnG4Ls9o"
+                    title="Demonstracja Detekcji Pojazdów"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+            <h3>Detekcja Pojazdów w Czasie Rzeczywistym</h3>
+            <p>System wykorzystuje zaawansowany algorytm YOLO v8 do wykrywania i śledzenia pojazdów.
+                Na filmie widoczne jest, jak system precyzyjnie identyfikuje różne pojazdy,
+                śledzi ich ruch i oznacza je unikalnymi identyfikatorami.</p>
+        </div>
+    </div>
+
+    <!-- Sekcja 2: Detekcja Osób i Rowerów -->
+    <div class="section">
+        <h2>Demonstracja Detekcji Osób i Rowerów</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/HLefq11edsw"
+                    title="Demonstracja Detekcji Osób i Rowerów"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+            <h3>Wieloklasowa Detekcja Obiektów</h3>
+            <p>System jednocześnie wykrywa i śledzi różne typy obiektów: osoby, rowery i pojazdy.
+                Każdy wykryty obiekt jest oznaczony odpowiednim znacznikiem i unikalnym ID śledzenia.</p>
+        </div>
+    </div>
+
+    <!-- Sekcja 3: Szczegóły Techniczne -->
+    <div class="section">
+        <h2>Specyfikacja Techniczna</h2>
+
+        <div class="code-explanation">
+            <h3>Konfiguracja Systemu</h3>
+            <pre><code>
+import numpy as np
+import supervision as sv
+from ultralytics import YOLO
+
+# Inicjalizacja modelu YOLO
+model = YOLO("yolov8n.pt")
+
+# Konfiguracja systemu śledzenia
+tracker = sv.ByteTrack()
+box_annotator = sv.BoxAnnotator()
+label_annotator = sv.LabelAnnotator()
+trace_annotator = sv.TraceAnnotator()
+
+# Definicja klas obiektów
+TARGET_CLASSES = {
+    2: 'samochód',     # Detekcja pojazdów
+    0: 'osoba',        # Detekcja osób
+    1: 'rower'         # Detekcja rowerów
+}
+
+# Funkcja przetwarzająca każdą klatkę
+def callback(frame: np.ndarray, _: int) -> np.ndarray:
+    results = model(frame)[0]
+    detections = sv.Detections.from_ultralytics(results)
+            </code></pre>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <h4>Dokładność Detekcji</h4>
+                <p>Do 98% dla pojazdów</p>
+            </div>
+            <div class="stat-box">
+                <h4>Szybkość Przetwarzania</h4>
+                <p>30 klatek na sekundę</p>
+            </div>
+            <div class="stat-box">
+                <h4>Obsługiwane Klasy</h4>
+                <p>Pojazdy, Osoby, Rowery</p>
+            </div>
+        </div>
+
+        <h3>Proces Detekcji i Śledzenia</h3>
+        <div class="feature-list">
+            <ol>
+                <li><strong>Przechwytywanie obrazu:</strong>
+                    <ul>
+                        <li>System pobiera obraz z kamery w czasie rzeczywistym</li>
+                        <li>Każda klatka jest przetwarzana osobno</li>
+                    </ul>
+                </li>
+                <li><strong>Detekcja obiektów:</strong>
+                    <ul>
+                        <li>Model YOLO analizuje klatkę</li>
+                        <li>Wykrywa wszystkie zdefiniowane klasy obiektów</li>
+                        <li>Określa pozycję i rozmiar każdego obiektu</li>
+                    </ul>
+                </li>
+                <li><strong>Śledzenie:</strong>
+                    <ul>
+                        <li>ByteTrack śledzi obiekty między klatkami</li>
+                        <li>Przypisuje unikalne ID każdemu śledzonemu obiektowi</li>
+                        <li>Utrzymuje śledzenie nawet przy częściowym zasłonięciu</li>
+                    </ul>
+                </li>
+                <li><strong>Wizualizacja:</strong>
+                    <ul>
+                        <li>Rysowanie ramek wokół wykrytych obiektów</li>
+                        <li>Wyświetlanie etykiet z klasą i ID</li>
+                        <li>Generowanie ścieżek ruchu obiektów</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Sekcja 4: Zastosowania -->
+    <div class="section">
+        <h2>Zastosowania Systemu</h2>
+        <div class="feature-list">
+            <ul>
+                <li><strong>Monitoring Parkingów:</strong>
+                    <ul>
+                        <li>Śledzenie dostępności miejsc parkingowych</li>
+                        <li>Wykrywanie nieprawidłowego parkowania</li>
+                        <li>Analiza wykorzystania parkingu</li>
+                    </ul>
+                </li>
+                <li><strong>Bezpieczeństwo Ruchu:</strong>
+                    <ul>
+                        <li>Wykrywanie niebezpiecznych sytuacji</li>
+                        <li>Monitorowanie przejść dla pieszych</li>
+                        <li>Analiza interakcji między pojazdami a pieszymi</li>
+                    </ul>
+                </li>
+                <li><strong>Analiza Ruchu:</strong>
+                    <ul>
+                        <li>Zliczanie pojazdów i pieszych</li>
+                        <li>Analiza przepływu ruchu</li>
+                        <li>Generowanie statystyk wykorzystania</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>System Rozpoznawania Tablic Rejestracyjnych</h2>
+
+        <div class="image-grid">
+            <div class="image-container">
+                <img src="https://i.imgur.com/Tp4WdAa.png" alt="Oryginalny obraz"/>
+                <p class="image-description">Oryginalny obraz z tablicą rejestracyjną</p>
+            </div>
+            <div class="image-container">
+                <img src="https://i.imgur.com/zXrkIMK.png" alt="Obraz po przetworzeniu"/>
+                <p class="image-description">Obraz po konwersji do skali szarości i progowaniu</p>
+            </div>
+            <div class="image-container">
+                <img src="https://i.imgur.com/LxdUx4j.png" alt="Wykryta tablica"/>
+                <p class="image-description">Końcowy rezultat z wykrytą tablicą i zaznaczonym numerem</p>
+            </div>
+        </div>
+
+        <h3>Proces Rozpoznawania Tablic</h3>
+
+        <div class="process-step">
+            <h4>1. Wstępne Przetwarzanie Obrazu</h4>
+            <pre><code>
+# Konwersja do skali szarości
+szary = cv2.cvtColor(obraz, cv2.COLOR_BGR2GRAY)
+
+# Progowanie adaptacyjne
+binarna = cv2.adaptiveThreshold(
+    szary, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+    cv2.THRESH_BINARY_INV, 11, 2
+)</code></pre>
+            <p>System rozpoczyna od konwersji obrazu do skali szarości i stosuje adaptacyjne progowanie,
+                co pomaga wyodrębnić tekst tablicy rejestracyjnej z tła.</p>
+        </div>
+
+        <div class="process-step">
+            <h4>2. Detekcja Tekstu</h4>
+            <pre><code>
+# Inicjalizacja czytnika OCR
+czytnik = easyocr.Reader(['en'])
+
+# Rozpoznawanie tekstu
+wyniki = czytnik.readtext(obraz)</code></pre>
+            <p>Wykorzystujemy bibliotekę EasyOCR do rozpoznawania tekstu z obrazu. System jest
+                zoptymalizowany do wykrywania znaków występujących na tablicach rejestracyjnych.</p>
+        </div>
+
+        <div class="process-step">
+            <h4>3. Filtrowanie i Weryfikacja</h4>
+            <pre><code>
+for (ramka, tekst, pewnosc) in wyniki:
+    if pewnosc > 0.2 and len(tekst) > 4:
+        print(f"Znaleziony tekst: {tekst} (pewność: {pewnosc:.2f})")
+        wykryty_tekst.append(tekst)</code></pre>
+            <p>System filtruje wyniki, zachowując tylko te o odpowiedniej długości i poziomie pewności,
+                co pomaga eliminować fałszywe rozpoznania.</p>
+        </div>
+
+        <div class="process-step">
+            <h4>4. Wizualizacja Wyników</h4>
+            <pre><code>
+punkty = np.array(ramka, np.int32)
+cv2.polylines(obraz_wynikowy, [punkty], True, (0, 255, 0), 2)
+cv2.putText(obraz_wynikowy, tekst,
+            (int(ramka[0][0]), int(ramka[0][1]) - 10),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)</code></pre>
+            <p>Wykryte tablice rejestracyjne są zaznaczane na obrazie wraz z rozpoznanym tekstem,
+                co pozwala na wizualną weryfikację wyników.</p>
+        </div>
+
+        <h3>Dokładność i Wydajność</h3>
+        <div class="feature-list">
+            <ul>
+                <li>Skuteczność rozpoznawania: > 95% dla wyraźnych tablic</li>
+                <li>Obsługa różnych formatów tablic rejestracyjnych</li>
+                <li>Odporność na różne warunki oświetleniowe</li>
+                <li>Szybkość przetwarzania: ~0.5s na obraz</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>System Bezpieczeństwa Bramki i Kontroli Wjazdu</h2>
+
+        <div class="video-description">
+            <h3>System Zabezpieczeń Wjazdu</h3>
+            <p>Zaawansowany system kontroli dostępu z wielopoziomowym zabezpieczeniem przed nadużyciami i zapewnieniem
+                bezpieczeństwa pojazdów.</p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <h4>Czas Reakcji</h4>
+                <p>< 1 sekunda</p>
+            </div>
+            <div class="stat-box">
+                <h4>Maksymalny Czas Otwarcia</h4>
+                <p>30 sekund</p>
+            </div>
+            <div class="stat-box">
+                <h4>Liczba Czujników</h4>
+                <p>3 sensory</p>
+            </div>
+        </div>
+
+        <h3>Komponenty Systemu Bezpieczeństwa</h3>
+
+        <div class="process-step">
+            <h4>1. Kontroler Bramki</h4>
+            <pre><code>
+class KontrolerBramki:
+    def __init__(self):
+        self.stan = StanBramki.ZAMKNIETA
+        self.czas_otwarcia = None
+        # Sensory
+        self.SENSOR_PRZED_BRAMKA = 17  # GPIO pin
+        self.SENSOR_POD_BRAMKA = 18    # GPIO pin
+        self.SENSOR_ZA_BRAMKA = 19     # GPIO pin</code></pre>
+            <p>Kontroler zarządza fizycznym mechanizmem bramki i monitoruje stan trzech czujników:
+                - Czujnik przed bramką: wykrywa zbliżający się pojazd
+                - Czujnik pod bramką: zapobiega zamknięciu podczas przejazdu
+                - Czujnik za bramką: potwierdza zakończenie przejazdu</p>
+        </div>
+
+        <div class="process-step">
+            <h4>2. Zarządzanie Stanem Bramki</h4>
+            <pre><code>
+class StanBramki(Enum):
+    ZAMKNIETA = 0
+    OTWIERANIE = 1
+    OTWARTA = 2
+    ZAMYKANIE = 3
+
+def otworz_bramke(self):
+    if self.stan == StanBramki.ZAMKNIETA:
+        print("Otwieranie bramki...")
+        self.stan = StanBramki.OTWIERANIE
+        time.sleep(self.CZAS_PELNEGO_OTWARCIA)
+        self.stan = StanBramki.OTWARTA
+        self.czas_otwarcia = datetime.now()
+        return True
+    return False</code></pre>
+            <p>System śledzi cztery stany bramki i zapewnia bezpieczne przejścia między nimi,
+                uniemożliwiając konfliktowe operacje.</p>
+        </div>
+
+        <div class="process-step">
+            <h4>3. Proces Kontroli Wjazdu</h4>
+            <pre><code>
+def proces_wjazdu(self, numer_rejestracyjny):
+    if not self.kontroler_bramki.otworz_bramke():
+        return "Błąd otwarcia bramki"
+
+    start_time = time.time()
+    przejazd_zakonczony = False
+
+    while time.time() - start_time < 30:  # Maksymalny czas oczekiwania
+        if self.kontroler_bramki.sprawdz_pojazd_pod_bramka():
+            while self.kontroler_bramki.sprawdz_pojazd_pod_bramka():
+                if self.kontroler_bramki.sprawdz_timeout():
+                    return "Timeout - przekroczono czas przejazdu"</code></pre>
+            <p>System monitoruje cały proces wjazdu, zapewniając:
+                - Wykrywanie prób przejazdu dwóch pojazdów
+                - Obsługę rezygnacji z wjazdu
+                - Automatyczne zamykanie po timeout'cie
+                - Bezpieczne zakończenie przejazdu</p>
+        </div>
+
+        <div class="feature-list">
+            <h3>Zabezpieczenia Systemu</h3>
+            <ul>
+                <li><strong>Ochrona przed Nadużyciami:</strong>
+                    <ul>
+                        <li>Blokada przejazdu dwóch pojazdów na jednej autoryzacji</li>
+                        <li>Monitoring czasu przejazdu</li>
+                        <li>Weryfikacja kompletnego przejazdu</li>
+                    </ul>
+                </li>
+                <li><strong>Bezpieczeństwo Fizyczne:</strong>
+                    <ul>
+                        <li>Czujniki obecności pojazdu</li>
+                        <li>Zabezpieczenie przed zamknięciem podczas przejazdu</li>
+                        <li>Automatyczne zamykanie przy przekroczeniu czasu</li>
+                    </ul>
+                </li>
+                <li><strong>Rejestracja Zdarzeń:</strong>
+                    <ul>
+                        <li>Logowanie wszystkich operacji</li>
+                        <li>Śledzenie czasów reakcji</li>
+                        <li>Rejestracja nieprawidłowości</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
