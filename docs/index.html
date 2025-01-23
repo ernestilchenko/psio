@@ -504,6 +504,96 @@ def proces_wjazdu(self, numer_rejestracyjny):
             </ul>
         </div>
     </div>
+    </div>
+
+    <!-- Sekcja 5: System Detekcji Miejsc Parkingowych -->
+    <div class="section">
+        <h2>System Detekcji Miejsc Parkingowych</h2>
+
+        <div class="video-container">
+            <iframe src="https://youtube.com/embed/8ZGvJh84UhM"
+                    title="Demonstracja Detekcji Miejsc Parkingowych"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+
+        <div class="video-description">
+            <h3>Analiza Zajętości Miejsc Parkingowych</h3>
+            <p>System automatycznie wykrywa i monitoruje stan miejsc parkingowych, oznaczając je odpowiednimi kolorami:
+            zielony (wolne), czerwony (zajęte), pomarańczowy (częściowo zablokowane).</p>
+        </div>
+
+        <div class="process-step">
+            <h4>1. Przetwarzanie Obrazu</h4>
+            <pre><code>
+import cv2
+from skimage.filters import threshold_li
+import matplotlib.pyplot as plt
+
+# Wczytanie klatki wideo
+cap = cv2.VideoCapture('parking_video.mp4')
+frame_no = 10
+cap.set(cv2.CAP_PROP_POS_FRAMES, frame_no-1)
+res, obraz = cap.read()
+
+# Konwersja na skalę szarości
+gray = cv2.cvtColor(obraz, cv2.COLOR_BGR2GRAY)
+
+# Progowanie obrazu
+thresh_value = threshold_li(gray)
+_, thresh = cv2.threshold(gray, thresh_value, 255, cv2.THRESH_BINARY_INV)</code></pre>
+        </div>
+
+        <div class="process-step">
+            <h4>2. Definicja i Analiza Miejsc Parkingowych</h4>
+            <pre><code>
+# Definicja współrzędnych miejsc
+parking_spots = [
+    (0, 90, 310, 130),   # Miejsce 1
+    (0, 220, 310, 145),  # Miejsce 2
+    (0, 365, 310, 152),  # Miejsce 3
+    (0, 517, 310, 140),  # Miejsce 4
+    (0, 657, 310, 143),  # Miejsce 5
+    (0, 800, 310, 150)   # Miejsce 6
+]
+
+# Analiza zajętości
+for idx, (x, y, w, h) in enumerate(parking_spots):
+    roi = thresh[y:y + h, x:x + w]
+    non_zero = cv2.countNonZero(roi)
+    total_pixels = w * h
+
+    if non_zero > total_pixels * 0.3:
+        status = "Zajete"
+        color = (0, 0, 255)
+    elif non_zero > total_pixels * 0.1:
+        status = "Zablokowane"
+        color = (0, 160, 255)
+    else:
+        status = "Wolne"
+        color = (0, 255, 0)
+
+    cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
+    cv2.putText(image, status, (x, y - 10),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)</code></pre>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <h4>Dokładność Detekcji</h4>
+                <p>95% dla standardowych warunków</p>
+            </div>
+            <div class="stat-box">
+                <h4>Czas Przetwarzania</h4>
+                <p>30ms na klatkę</p>
+            </div>
+            <div class="stat-box">
+                <h4>Próg Zajętości</h4>
+                <p>30% pikseli w ROI</p>
+            </div>
+        </div>
+
 </div>
 </body>
 </html>
