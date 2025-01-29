@@ -39,3 +39,8 @@ tzdata==2024.2
 urllib3==2.2.3
 uvicorn==0.32.1
 xyzservices==2024.9.0
+
+opencv-python~=4.10.0.84
+easyocr~=1.7.2
+scikit-image~=0.24.0
+ultralytics~=8.3.63

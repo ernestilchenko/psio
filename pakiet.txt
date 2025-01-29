@@ -1,0 +1,83 @@
+parking
+├── db
+│   └── parking.db
+├── models
+│   ├── best_car_detection.pt
+│   ├── labels.pt
+│   └── yolov8n.pt
+├── output
+│   └── output.mp4
+├── p.py
+├── requirements.txt
+└── test
+    ├── 2025-01-28 14.01.23.jpg
+    └── IMG_6490.MOV
+
+# 1. Aktywacja środowiska wirtualnego
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# lub
+venv\Scripts\activate  # Windows
+
+# 2. Instalacja wymaganych bibliotek
+pip install -r requirements.txt
+
+# 3. Uruchomienie programu
+python p.py
+
+
+db/parking.db
+Plik bazy danych, w którym przechowujemy informacje o numerach rejestracyjnych samochodów oraz o stanie parkingu (np. czy dany samochód aktualnie zajmuje miejsce, ile jest wolnych miejsc itp.).
+
+models/best_car_detection.pt
+Model skonfigurowany do detekcji Twojego konkretnego samochodu. Dzięki niemu możesz trenować rozpoznawanie wybranego pojazdu w materiałach wideo lub na zdjęciach.
+
+models/labels.pt
+Model służący do rozpoznawania/klasyfikacji numeru rejestracyjnego. Może zawierać informacje potrzebne do prawidłowej identyfikacji tablicy rejestracyjnej.
+
+models/yolov8n.pt
+Model YOLO (You Only Look Once) w wersji v8, który służy do detekcji różnych obiektów, takich jak ludzie czy rowery.
+
+output/output.mp4
+Przykładowy plik wyjściowy wideo zawierający efekty działania programu.
+
+p.py
+Ten skrypt Python implementuje system monitorowania parkingu z następującymi głównymi funkcjonalnościami:
+
+## 1. Klasa ParkingDatabase
+
+* Zarządza bazą danych SQLite do przechowywania informacji o pojazdach
+* Śledzi autoryzowane tablice rejestracyjne
+* Zapisuje status miejsc parkingowych
+* Obsługuje czasomierze dla każdego miejsca
+
+## 2. Klasa LicensePlateDetector
+
+* Wykorzystuje EasyOCR do odczytywania tablic rejestracyjnych
+* Przetwarza obrazy w celu poprawy rozpoznawania
+* Wykrywa i wyodrębnia obszary tablic rejestracyjnych
+
+## 3. Główne funkcje
+
+* `load_models()`: Ładuje modele YOLO do wykrywania samochodów i tablic
+* `process_video()`: Przetwarza strumień wideo i analizuje miejsca parkingowe
+* `check_parking_spots()`: Sprawdza status miejsc parkingowych
+* `is_in_spot()`: Sprawdza, czy obiekt znajduje się w określonym miejscu
+
+## 4. Funkcjonalność systemu
+
+* Monitoruje 8 miejsc parkingowych (6 standardowych + wjazd i wyjazd)
+* Weryfikuje autoryzowane pojazdy
+* Śledzi czas parkowania
+* Generuje komunikaty o dostępie
+* Zapisuje wyniki do pliku wideo
+
+requirements.txt
+Plik z listą zależności (bibliotek i wersji), niezbędnych do uruchomienia projektu.komenda pip install -r requirements.txt.
+
+test/
+2025-01-28 14.01.23.jpg
+Przykładowe zdjęcie wykorzystywane do testów rozpoznawania samochodu lub tablic rejestracyjnych.
+
+IMG_6490.MOV
+Przykładowy plik wideo testowego, na którym można przeprowadzać próby detekcji obiektów oraz ich klasyfikacji.
